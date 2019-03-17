@@ -1,0 +1,25 @@
+{
+  "name": "bad-block",
+  "version": "1.0.0",
+  "description": "Blocker for bad news using AFINN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimeoutZero/bad-block.git"
+  },
+  "keywords": [
+    "chrome",
+    "chrome-extension",
+    "extension",
+    "news"
+  ],
+  "author": "Carlos Henrique (C8)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TimeoutZero/bad-block/issues"
+  },
+  "homepage": "https://github.com/TimeoutZero/bad-block#readme"
+}
