@@ -1,4 +1,4 @@
-{
+const ptBRLabels = {
   "abandono": -2,
   "abandonado": -2,
   "abandonos": -2,
@@ -2171,3 +2171,5 @@
   "zelotes": -2,
   "zeloso": 2
 }
+
+export default ptBRLabels

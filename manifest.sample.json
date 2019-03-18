@@ -8,14 +8,21 @@
   "default_locale" : "en",
   "incognito" : "not_allowed",
 
+  "icons": {
+    "19": "./images/logo19.png",
+    "32": "./images/logo32.png",
+    "128": "./images/logo128.png"
+  },
+
   "page_action": {
+    "default_icon": "./images/logo19.png",
     "default_popup": "./build/popup.html",
     "default_title": "Bad Block"
   },
 
   "content_scripts": [
     {
-      "matches": ["*://g1.globo.com/*"],
+      "matches": ["*://www.g1.globo.com*"],
       "js": ["content.bundle.js"]
     }
   ],
@@ -41,6 +48,6 @@
   ],
 
   "optional_permissions": [
-    "*://g1.globo.com/*"
+    "*://www.g1.globo.com*"
   ]
 }
