@@ -527,6 +527,7 @@ const ptBRLabels = {
   "ensurdecedor": -1,
   "caro": 3,
   "morte": -2,
+  "mortes": -2,
   "afável": 2,
   "dívida": -2,
   "engano": -2,

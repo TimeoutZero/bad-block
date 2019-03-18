@@ -13,11 +13,10 @@ class BadBlockSentiment {
     })
   }
 
-  analyze(text, language){
-    language = language ||
-    this.sentiment.analyze(text, {
-      language: language
-    })
+  analyze(text, options = {}){
+    options.language = options.language || this.language
+
+    return this.sentiment.analyze(text, options)
   }
 
   getNavigatorLanguage(){
