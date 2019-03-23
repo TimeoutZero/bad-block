@@ -13,4 +13,6 @@ import jquery from 'jquery'
   };
 })(jquery)
 
+window.jQuery = jquery
+
 new MainContentAnalyzer()

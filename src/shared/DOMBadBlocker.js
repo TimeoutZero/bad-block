@@ -79,8 +79,8 @@ export default class DOMBadBlocker {
   }
 
   extractPostText($element){
-    const title    = $element.find(this.selectors.post.title).text() || ''
-    const subtitle = $element.find(this.selectors.post.subtitle).text() || ''
+    const title    = this.selectors.post.title ? $element.find(this.selectors.post.title).text() : ''
+    const subtitle = this.selectors.post.subtitle ? $element.find(this.selectors.post.subtitle).text() : ''
     return {
       title,
       subtitle,

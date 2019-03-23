@@ -2189,6 +2189,11 @@ const customLabels = {
   "mortos": -2,
   "mortas": -2,
 
+  "grande": 2,
+  "grandes": 2,
+  "esfaqueado": -3
+
+
 }
 
 Object.assign(ptBRLabels, customLabels)
