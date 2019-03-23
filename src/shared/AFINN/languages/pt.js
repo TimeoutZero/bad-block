@@ -527,7 +527,6 @@ const ptBRLabels = {
   "ensurdecedor": -1,
   "caro": 3,
   "morte": -2,
-  "mortes": -2,
   "afável": 2,
   "dívida": -2,
   "engano": -2,
@@ -2173,4 +2172,24 @@ const ptBRLabels = {
   "zeloso": 2
 }
 
+
+const customLabels = {
+  "apoio": 1,
+  "apoia": 1,
+  "apoiar": 1,
+  "apoiado": 1,
+  "apoiada": 1,
+
+  "massacre": 4,
+  "massacres": 4,
+
+  "mortes": -2,
+  "morto": -2,
+  "morta": -2,
+  "mortos": -2,
+  "mortas": -2,
+
+}
+
+Object.assign(ptBRLabels, customLabels)
 export default ptBRLabels

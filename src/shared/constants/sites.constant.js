@@ -1,4 +1,5 @@
-import G1SiteBlocker from '../../contentScripts/sites/g1/g1.siteBlocker'
+import G1SiteBlocker from "../../contentScripts/sites/g1/g1.blocker";
+
 
 const SITES = {
   G1: {
