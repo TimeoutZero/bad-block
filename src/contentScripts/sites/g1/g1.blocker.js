@@ -1,4 +1,4 @@
-import DOMBadBlocker from "../../../shared/DOMBadBlocker";
+import DOMBadBlocker from "../../../shared/DOMBadBlocker/DOMBadBlocker";
 
 export default class G1SiteBlocker {
   constructor(sentiment) {

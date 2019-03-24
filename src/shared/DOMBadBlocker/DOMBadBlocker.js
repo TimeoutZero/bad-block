@@ -1,16 +1,25 @@
 import $ from 'jquery'
-import BadBlockSentiment from './AFINN/sentiment'
+import BadBlockSentiment from '../AFINN/sentiment'
+import style from './DOMBadBlocker.style.scss'
+
+let findsCounter = 0
+let creationCounter = 0
 
 export default class DOMBadBlocker {
   constructor(options = {}){
     this.name          = options.name || undefined
-    this.selectors     = options.selectors || {}
+    this.selectors     = options.selectors || {post:{}}
+    this.selectors.postSubstitute = {
+      itself: '.bad-blocker-post-substitute',
+      wrapper: '.bad-blocker-wrapper'
+    }
 
     this.posts         = []
     this.negativePosts = []
     this.positivePosts = []
     this.neutralPosts  = []
 
+    this.logBlockerName(this.name)
     this.defineNewPostsWatcher(this.selectors.rootPostsWatcher)
     this.findPosts()
   }
@@ -58,9 +67,17 @@ export default class DOMBadBlocker {
       if(postSentiment.score < 0){
         this.negativePosts.push(post)
         // $wrapper.hide()
+        const substituteWrapperClass = this.selectors.postSubstitute.wrapper.replace('.', '')
+        !$wrapper.hasClass(substituteWrapperClass) ? $wrapper.addClass(substituteWrapperClass) : void 0
         $wrapper.css({
           'border': '2px solid red'
         })
+        const internalSubstitute = $wrapper.find(this.selectors.postSubstitute.itself)
+        console.log('findPosts', ++findsCounter)
+        if(!internalSubstitute.length){
+          const $substitute  = this.createPostSubstitute(postSentiment)
+          $wrapper.append($substitute)
+        }
       } else if(postSentiment.score > 0) {
         this.positivePosts.push(post)
       } else {
@@ -76,6 +93,13 @@ export default class DOMBadBlocker {
     })
 
 
+  }
+
+  createPostSubstitute(postSentiment){
+    console.log('creationCounter', ++creationCounter)
+    const $substitute = $('<div></div>')
+    $substitute.addClass(this.selectors.postSubstitute.itself.replace('.', ''))
+    return $substitute
   }
 
   extractPostText($element){

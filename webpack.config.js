@@ -37,6 +37,14 @@ var options = {
         exclude: /node_modules/
       },
       {
+        test: /\.sass/,
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+      },
+      {
+        test: /\.scss/,
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+      },
+      {
         test: new RegExp('\.(' + fileExtensions.join('|') + ')$'),
         loader: "file-loader?name=[name].[ext]",
         exclude: /node_modules/
