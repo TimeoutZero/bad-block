@@ -1,11 +1,12 @@
 import DOMBadBlocker from "../../../shared/DOMBadBlocker/DOMBadBlocker";
+import g1Style from './g1.style.scss'
 
 export default class G1SiteBlocker {
   constructor(sentiment) {
 
     const postsPagesContainerSelector = '.bstn-fd.bstn-cls-deprecated_.bastian.bstn-feed._bstn-cls-deprecated.editorial.bstn-fd-csr.bstn-cls-deprecated_.bstn-feed-csr._bstn-cls-deprecated'
     const feedSettings = {
-      name: 'G1 Feed' ,
+      name: 'g1-feed' ,
 
       selectors: {
         rootPostsWatcher: postsPagesContainerSelector,
@@ -19,21 +20,21 @@ export default class G1SiteBlocker {
     }
 
     const mainNewsSectionSettings = {
-      name: 'G1 Feed' ,
+      name: 'g1-main-news' ,
 
       selectors: {
         rootPostsWatcher: '.bstn-hls',
         post: {
           wrapper : '.bstn-hl-wrapper',
           itself  : '.bstn-hl',
-          title   : '.bstn-hl-link bstn-hl-title',
+          title   : '.bstn-hl-title',
           subtitle: '.bstn-hl-chapeu'
         }
       }
     }
 
     const topNewsSectionSettings = {
-      name: 'G1 Feed',
+      name: 'g1-top-news',
 
       selectors: {
         rootPostsWatcher: '.post-bastian-products__content.post-mais-lidas__content',

@@ -22,6 +22,7 @@ var options = {
   mode: process.env.NODE_ENV || "development",
   entry: {
     popup: path.join(__dirname, "webpackEntries", "popup.js"),
+    options: path.join(__dirname, "webpackEntries", "options.js"),
     background: path.join(__dirname, "webpackEntries", "background.js"),
     content: path.join(__dirname, "webpackEntries", "content.js")
   },
@@ -85,7 +86,7 @@ var options = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "popupApp/index.html"),
       filename: "popup.html",
-      chunks: ["popup"]
+      chunks: ["popupApp"]
     }),
 
     new WriteFilePlugin()

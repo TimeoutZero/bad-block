@@ -1,0 +1,17 @@
+.g1-feed {
+  background: #F9F9F9 !important;
+  font-family: 'opensans', 'opensans-bastian', Arial, sans-serif;
+  font-size: 24px;
+
+  .bad-blocker-message {
+    color: #c4170c;
+  }
+
+  &:after {
+    background-color: #c8c8c8;
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 32px;
+  }
+}

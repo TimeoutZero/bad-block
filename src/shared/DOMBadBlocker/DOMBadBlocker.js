@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import BadBlockSentiment from '../AFINN/sentiment'
 import style from './DOMBadBlocker.style.scss'
+import I18n from '../i18n/i18n'
 
 let findsCounter = 0
 let creationCounter = 0
@@ -32,7 +33,7 @@ export default class DOMBadBlocker {
       text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black
     `
 
-    console.log(`✌️ %cBad Block`, extensionNameCSS)
+    console.log(`✌️ %cBad Block ${complement}`, extensionNameCSS)
 
   }
 
@@ -69,9 +70,6 @@ export default class DOMBadBlocker {
         // $wrapper.hide()
         const substituteWrapperClass = this.selectors.postSubstitute.wrapper.replace('.', '')
         !$wrapper.hasClass(substituteWrapperClass) ? $wrapper.addClass(substituteWrapperClass) : void 0
-        $wrapper.css({
-          'border': '2px solid red'
-        })
         const internalSubstitute = $wrapper.find(this.selectors.postSubstitute.itself)
         console.log('findPosts', ++findsCounter)
         if(!internalSubstitute.length){
@@ -97,8 +95,30 @@ export default class DOMBadBlocker {
 
   createPostSubstitute(postSentiment){
     console.log('creationCounter', ++creationCounter)
-    const $substitute = $('<div></div>')
-    $substitute.addClass(this.selectors.postSubstitute.itself.replace('.', ''))
+    let postSeverity       = Math.abs(postSentiment.score)
+    if(postSeverity > 5){
+      postSeverity = 5
+    }
+
+    const postSeverityWord   = `severity_${postSeverity}`
+    const randomSentencIndex = _.random(1, 2)
+
+    const substituteTemplate         = `
+      <div class="<%= substituteClassName %>">
+        <div class="bad-blocker-post-substitute-content">
+          <span class="fas fa-hand-peace"></span>
+          <span class="bad-blocker-message"><%= sentimentSentence %></span>
+        </div>
+      </div>
+    `
+
+    const substituteTemplateFunction = _.template(substituteTemplate)
+    const substituteHTML             = substituteTemplateFunction({
+      substituteClassName: this.selectors.postSubstitute.itself.replace('.', '') + ` ${this.name}`,
+      sentimentSentence  : I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex])
+    })
+
+    const $substitute = $(substituteHTML)
     return $substitute
   }
 

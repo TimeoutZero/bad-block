@@ -21,7 +21,7 @@
   ],
 
   "background": {
-    "scripts": []
+    "scripts": ["background.bundle.js"]
   },
 
   "externally_connectable": {

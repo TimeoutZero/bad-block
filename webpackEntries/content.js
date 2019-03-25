@@ -1,6 +1,8 @@
 import MainContentAnalyzer from '../src/contentScripts/main.content'
 import BadBlockSentiment from '../src/shared/AFINN/sentiment'
 import jquery from 'jquery'
+import I18n from '../src/shared/i18n/i18n'
+// import fontawesome from '../src/shared/fontawesome/fontawesome.scss'
 
 (function($) {
   $.fn.change = function(cb, e) {
@@ -15,4 +17,5 @@ import jquery from 'jquery'
 
 window.jQuery = jquery
 
+I18n.discoverMessagesByLocale()
 new MainContentAnalyzer()

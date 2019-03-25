@@ -2180,14 +2180,20 @@ const customLabels = {
   "apoiado": 1,
   "apoiada": 1,
 
-  "massacre": 4,
-  "massacres": 4,
+  "massacre": -4,
+  "massacres": -4,
 
   "mortes": -2,
   "morto": -2,
   "morta": -2,
   "mortos": -2,
   "mortas": -2,
+
+  "arma": -2,
+  "armado": -2,
+  "armados": -2,
+  "armada": -2,
+  "armadas": -2,
 
   "grande": 2,
   "grandes": 2,
