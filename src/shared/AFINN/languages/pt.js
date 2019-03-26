@@ -2183,11 +2183,17 @@ const customLabels = {
   "massacre": -4,
   "massacres": -4,
 
-  "mortes": -2,
-  "morto": -2,
-  "morta": -2,
-  "mortos": -2,
-  "mortas": -2,
+  "mortes": ptBRLabels.morte,
+  "mortes": ptBRLabels.morte,
+  "morto": ptBRLabels.morte,
+  "morta": ptBRLabels.morte,
+  "mortos": ptBRLabels.morte,
+  "mortas": ptBRLabels.morte,
+  "matou": ptBRLabels.morte,
+
+  "atropelado": ptBRLabels.morte,
+  "atropelados": ptBRLabels.morte,
+  "atropelamento": ptBRLabels.morte,
 
   "arma": -2,
   "armado": -2,
