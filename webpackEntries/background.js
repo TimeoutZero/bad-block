@@ -1,10 +1,10 @@
 // Copyright (c) 2011 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-const supportedSitesURLs = [
-  'g1.globo.com',
-  'www.r7.com'
-]
+import SITES from '../src/shared/constants/sites.constant'
+
+const sitesInfo = Object.values(SITES)
+const supportedSitesURLs = sitesInfo.map(siteInfo => siteInfo.siteRoot)
 
 function addBadBlockRules(){
   const urlRules = []
