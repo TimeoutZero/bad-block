@@ -2,9 +2,9 @@ import $ from 'jquery'
 import BadBlockSentiment from '../AFINN/sentiment'
 import style from './DOMBadBlocker.style.scss'
 import I18n from '../i18n/i18n'
+import StringHelper from '../StringHelper/StringHelper'
 
-let findsCounter = 0
-let creationCounter = 0
+
 
 export default class DOMBadBlocker {
   constructor(options = {}){
@@ -12,13 +12,16 @@ export default class DOMBadBlocker {
     this.selectors     = options.selectors || {post:{}}
     this.selectors.postSubstitute = {
       itself: '.bad-blocker-post-substitute',
-      wrapper: '.bad-blocker-wrapper'
+      wrapper: `.bad-blocker-wrapper .${this.name}`
     }
 
     this.posts         = []
     this.negativePosts = []
     this.positivePosts = []
     this.neutralPosts  = []
+
+    this.findsCounter = 0
+    this.creationCounter = 0
 
     this.logBlockerName(this.name)
     this.defineNewPostsWatcher(this.selectors.rootPostsWatcher)
@@ -28,7 +31,7 @@ export default class DOMBadBlocker {
   logBlockerName(complement = ''){
     const extensionNameCSS = `
       font-weight: bold;
-      font-size: 100px;
+      font-size: 20px;
       color: red;
       text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black
     `
@@ -47,6 +50,7 @@ export default class DOMBadBlocker {
   }
 
   findPosts(){
+    console.log(`[${this.name}] findsCounter`, ++this.findsCounter)
     const posts = $(this.selectors.post.itself).get()
     this.negativePosts = []
     this.positivePosts = []
@@ -55,7 +59,7 @@ export default class DOMBadBlocker {
     this.posts = posts.map((element) => {
       const $element      = $(element)
       const texts         = this.extractPostText($element)
-      const $wrapper      = $element.closest(this.selectors.post.wrapper)
+      const $wrapper      = this.selectors.post.wrapper === 'itself' ? $element : $element.closest(this.selectors.post.wrapper)
       const postSentiment = BadBlockSentiment.analyze(texts.mixed)
       const post          = {
         $element: $element,
@@ -68,10 +72,9 @@ export default class DOMBadBlocker {
       if(postSentiment.score < 0){
         this.negativePosts.push(post)
         // $wrapper.hide()
-        const substituteWrapperClass = this.selectors.postSubstitute.wrapper.replace('.', '')
+        const substituteWrapperClass = StringHelper.cleanHTMLClass(this.selectors.postSubstitute.wrapper)
         !$wrapper.hasClass(substituteWrapperClass) ? $wrapper.addClass(substituteWrapperClass) : void 0
         const internalSubstitute = $wrapper.find(this.selectors.postSubstitute.itself)
-        console.log('findPosts', ++findsCounter)
         if(!internalSubstitute.length){
           const $substitute  = this.createPostSubstitute(postSentiment)
           $wrapper.append($substitute)
@@ -82,11 +85,6 @@ export default class DOMBadBlocker {
         this.neutralPosts.push(post)
       }
 
-      // console.group('badBlockPostReport')
-      // this.logBlockerName()
-
-      // console.groupEnd('badBlockPostReport')
-
       return post
     })
 
@@ -94,7 +92,7 @@ export default class DOMBadBlocker {
   }
 
   createPostSubstitute(postSentiment){
-    console.log('creationCounter', ++creationCounter)
+    console.log(`[${this.name}] creationCounter`, ++this.creationCounter)
     let postSeverity       = Math.abs(postSentiment.score)
     if(postSeverity > 5){
       postSeverity = 5
@@ -114,7 +112,7 @@ export default class DOMBadBlocker {
 
     const substituteTemplateFunction = _.template(substituteTemplate)
     const substituteHTML             = substituteTemplateFunction({
-      substituteClassName: this.selectors.postSubstitute.itself.replace('.', '') + ` ${this.name}`,
+      substituteClassName: StringHelper.cleanHTMLClass(this.selectors.postSubstitute.itself),
       sentimentSentence  : I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex])
     })
 
@@ -131,5 +129,7 @@ export default class DOMBadBlocker {
       mixed : `${title} ${subtitle}`
     }
   }
+
+
 
 }
