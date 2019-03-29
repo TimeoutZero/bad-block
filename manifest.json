@@ -15,7 +15,12 @@
 
   "content_scripts": [
     {
-      "matches": ["*://g1.globo.com/*", "*://www.r7.com/*"],
+      "matches": [
+        "*://g1.globo.com/*",
+
+        "*://www.r7.com/*",
+        "*://diversao.r7.com/*"
+      ],
       "js": ["content.bundle.js"]
     }
   ],
@@ -42,6 +47,8 @@
 
   "optional_permissions": [
     "*://g1.globo.com/*",
-    "*://www.r7.com/*"
+
+    "*://www.r7.com/*",
+    "*://diversao.r7.com/*"
   ]
 }

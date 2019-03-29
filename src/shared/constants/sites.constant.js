@@ -10,7 +10,7 @@ const SITES = {
   },
   R7: {
     name: 'R7',
-    siteRoot: 'www.r7.com',
+    siteRoot: ['www.r7.com', 'diversao.r7.com'],
     siteBlocker: R7SiteBlocker
   }
 }
