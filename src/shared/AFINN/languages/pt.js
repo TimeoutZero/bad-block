@@ -1,3 +1,5 @@
+'use strict';
+
 const ptBRLabels = {
   "abandono": -2,
   "abandonado": -2,
@@ -2173,27 +2175,32 @@ const ptBRLabels = {
 }
 
 
-const customLabels = {
+const customValues = {
   "apoio": 1,
-  "apoia": 1,
-  "apoiar": 1,
-  "apoiado": 1,
-  "apoiada": 1,
+  "morte": -3,
+  "grande": 2,
+}
 
-  "massacre": -4,
-  "massacres": -4,
+const customLabels = {
+  "apoia": customValues.apoio,
+  "apoiado": customValues.apoio,
+  "apoiar": customValues.apoio,
+  "apoiada": customValues.apoio,
 
-  "mortes": ptBRLabels.morte,
-  "mortes": ptBRLabels.morte,
-  "morto": ptBRLabels.morte,
-  "morta": ptBRLabels.morte,
-  "mortos": ptBRLabels.morte,
-  "mortas": ptBRLabels.morte,
-  "matou": ptBRLabels.morte,
+  "massacre"  : customValues.morte + -2,
+  "massacres" : customValues.morte + -2,
 
-  "atropelado": ptBRLabels.morte,
-  "atropelados": ptBRLabels.morte,
-  "atropelamento": ptBRLabels.morte,
+  "mortes" : customValues.morte + -1,
+  "morto"  : customValues.morte + -1,
+  "morta"  : customValues.morte + -1,
+  "mortos" : customValues.morte + -1,
+  "mortas" : customValues.morte + -1,
+  "matou"  : customValues.morte + -1,
+  "morre"  : customValues.morte + -1,
+
+  "atropelado": customValues.morte + -1,
+  "atropelados": customValues.morte + -1,
+  "atropelamento": customValues.morte + -1,
 
   "arma": -2,
   "armado": -2,
@@ -2201,12 +2208,18 @@ const customLabels = {
   "armada": -2,
   "armadas": -2,
 
-  "grande": 2,
-  "grandes": 2,
-  "esfaqueado": -3
+  "grandes": customValues.grande,
+  "esfaqueado": customValues.morte + -1,
 
+  "atentado": ptBRLabels.terror,
+  "terrorista": ptBRLabels.terror,
+  "terroristas": ptBRLabels.terror + -1,
+
+  "violentos": ptBRLabels.violento,
+  "violenta": ptBRLabels.violento,
+  "violentas": ptBRLabels.violento
 
 }
 
-Object.assign(ptBRLabels, customLabels)
+Object.assign(ptBRLabels, customValues, customLabels)
 export default ptBRLabels
