@@ -104,7 +104,8 @@ export default class DOMBadBlocker {
     const substituteTemplate         = `
       <div class="<%= substituteClassName %>">
         <div class="bad-blocker-post-substitute-content">
-          <span class="fas fa-hand-peace"></span>
+          <i class="fas fa-hand-peace"></i>
+          <i class="fas fa-meh-blank"></i>
           <span class="bad-blocker-message"><%= sentimentSentence %></span>
         </div>
       </div>

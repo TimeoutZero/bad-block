@@ -39,7 +39,12 @@ var options = {
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax',
+        options: {
+          "includePaths": [
+            require('path').resolve(__dirname, 'node_modules')
+          ]
+        }
       },
       {
         test: /\.scss/,
