@@ -47,11 +47,26 @@ export default class G1SiteBlocker {
       }
     }
 
+    const sideGroupsSettings = {
+      name: 'g1-side-groups',
+
+      selectors: {
+        rootPostsWatcher: '.post-agrupador-materia.theme',
+        post: {
+          wrapper : 'itself',
+          itself  : '.post-agrupador-materia.theme ul li',
+          title   : 'div div',
+          subtitle: 'div a'
+        }
+      }
+    }
 
 
-    this.feed     = new DOMBadBlocker(feedSettings)
-    this.mainNews = new DOMBadBlocker(mainNewsSectionSettings)
-    this.topNews  = new DOMBadBlocker(topNewsSectionSettings)
+
+    this.feed       = new DOMBadBlocker(feedSettings)
+    this.mainNews   = new DOMBadBlocker(mainNewsSectionSettings)
+    this.topNews    = new DOMBadBlocker(topNewsSectionSettings)
+    this.sideGroups = new DOMBadBlocker(sideGroupsSettings)
 
   }
 
