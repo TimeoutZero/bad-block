@@ -122,8 +122,8 @@ export default class DOMBadBlocker {
   }
 
   extractPostText($element){
-    let title      = ''
-    const subtitle = ''
+    let title    = ''
+    let subtitle = ''
 
     if(this.selectors.post.title){
       title = this.selectors.post.title === 'itself' ? $element.text() : $element.find(this.selectors.post.title).text()
