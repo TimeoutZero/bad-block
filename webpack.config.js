@@ -60,6 +60,10 @@ var options = {
         test: /\.html$/,
         loader: "html-loader",
         exclude: /node_modules/
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot|otf|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'null-loader?name=[name].[ext]'
       }
     ]
   },

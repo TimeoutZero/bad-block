@@ -1,2 +1,5 @@
-$fa-font-path: 'assets/webfonts';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+$fa-font-path: 'assets/webfonts' !default;
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
