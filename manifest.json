@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Bad block",
+  "name": "Newsster",
   "content_security_policy": " script-src 'self' 'unsafe-eval' http://localhost; object-src 'self'",
   "description": "__MSG_appDescription__",
   "version": "0.0.1",
@@ -10,7 +10,7 @@
 
   "page_action": {
     "default_popup": "./build/popup.html",
-    "default_title": "Bad Block"
+    "default_title": "Newsster"
   },
 
   "content_scripts": [
