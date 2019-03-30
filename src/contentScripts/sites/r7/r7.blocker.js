@@ -90,6 +90,20 @@ export default class R7SiteBlocker {
       }
     }
 
+    const sideOutbrainSettings = {
+      name: 'r7-side-outbrain' ,
+
+      selectors: {
+        rootPostsWatcher: '.ob-widget-items-container',
+        post: {
+          wrapper : 'itself',
+          itself  : '.ob-dynamic-rec-container',
+          title   : '.ob-rec-text',
+          subtitle: undefined
+        }
+      }
+    }
+
 
 
     this.diverseTrends        = new DOMBadBlocker(diverseTrendsSettings)
@@ -98,6 +112,7 @@ export default class R7SiteBlocker {
     this.diverseCallTrends    = new DOMBadBlocker(diverseCallTrendsSettings)
     this.topNews              = new DOMBadBlocker(topNewsSettings)
     this.sidebarTopNews       = new DOMBadBlocker(sidebarTopNewsSettings)
+    this.sideOutbrainWidget   = new DOMBadBlocker(sideOutbrainSettings)
 
   }
 

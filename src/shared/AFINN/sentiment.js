@@ -15,8 +15,13 @@ class BadBlockSentiment {
 
   analyze(text, options = {}){
     options.language = options.language || this.language
-
-    return this.sentiment.analyze(text, options)
+    const textSentiment = this.sentiment.analyze(text, options)
+    let severity = Math.abs(textSentiment.score)
+    if(severity > 5){
+      severity = 5
+    }
+    textSentiment.severity = severity
+    return textSentiment
   }
 
   getNavigatorLanguage(){

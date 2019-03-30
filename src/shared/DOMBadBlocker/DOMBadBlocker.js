@@ -67,7 +67,7 @@ export default class DOMBadBlocker {
         texts
       }
 
-      $element.data('badBlockPost', post)
+      $wrapper.data('badBlockPost', post)
 
       if(postSentiment.score < 0){
         this.negativePosts.push(post)
@@ -93,28 +93,42 @@ export default class DOMBadBlocker {
 
   createPostSubstitute(postSentiment){
     console.log(`[${this.name}] creationCounter`, ++this.creationCounter)
-    let postSeverity       = Math.abs(postSentiment.score)
-    if(postSeverity > 5){
-      postSeverity = 5
-    }
 
-    const postSeverityWord   = `severity_${postSeverity}`
+    const postSeverityWord   = `severity_${postSentiment.severity}`
     const randomSentencIndex = _.random(1, 2)
 
     const substituteTemplate         = `
       <div class="<%= substituteClassName %>">
         <div class="bad-blocker-post-substitute-content">
-          <i class="fas fa-hand-peace"></i>
-          <i class="fas fa-meh-blank"></i>
-          <span class="bad-blocker-message"><%= sentimentSentence %></span>
+          <span class="post-severity-icon"
+            title="<%= sentimentSentences.description %>"
+          >
+            [<%= postSentiment.severity %>]
+          </span>
+          <span class="bad-blocker-message"
+            title="<%= sentimentSentences.message %>"
+          >
+            <%= sentimentSentences.message %>
+          </span>
+          <div class="bad-blocker-resume-wrapper">
+            <i class="far fa-meh-blank post-words-icon"
+              title="<%= sentimentSentences.negativeWords %>"
+              ></i>
+            <i class="far fa-eye post-switch-icon"></i>
+          </div>
         </div>
       </div>
     `
 
     const substituteTemplateFunction = _.template(substituteTemplate)
     const substituteHTML             = substituteTemplateFunction({
+      postSentiment      : postSentiment,
       substituteClassName: StringHelper.cleanHTMLClass(this.selectors.postSubstitute.itself),
-      sentimentSentence  : I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex])
+      sentimentSentences  : {
+        description:I18n.getMessage(['negativeReasons', postSeverityWord, 'description']),
+        message: I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex]),
+        negativeWords: StringHelper.toSentence(postSentiment.negative)
+      }
     })
 
     const $substitute = $(substituteHTML)

@@ -2197,10 +2197,12 @@ const customLabels = {
   "mortas" : customValues.morte + -1,
   "matou"  : customValues.morte + -1,
   "morre"  : customValues.morte + -1,
+  "morrem" : customValues.morte + -1,
 
   "atropelado": customValues.morte + -1,
   "atropelados": customValues.morte + -1,
   "atropelamento": customValues.morte + -1,
+  "crucificados": customValues.morte,
 
   "arma": -2,
   "armado": -2,
@@ -2217,8 +2219,10 @@ const customLabels = {
 
   "violentos": ptBRLabels.violento,
   "violenta": ptBRLabels.violento,
-  "violentas": ptBRLabels.violento
+  "violentas": ptBRLabels.violento,
 
+  "agrediram" : ptBRLabels['agressão'],
+  "agrediu"   : ptBRLabels['agressão']
 }
 
 Object.assign(ptBRLabels, customValues, customLabels)

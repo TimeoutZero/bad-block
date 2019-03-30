@@ -13,7 +13,7 @@ $g1TitleFontFamily:  opensans, opensans-bastian, Arial, sans-serif;
     .bad-blocker-message {
       font-family: $g1TitleFontFamily;
       color: $g1Red;
-      font-size: 24px;
+      font-size: 24px !important;
       font-weight: 700;
     }
 
@@ -61,7 +61,7 @@ $g1TitleFontFamily:  opensans, opensans-bastian, Arial, sans-serif;
   .bad-blocker-post-substitute {
     .bad-blocker-message{
       font-family: $g1TitleFontFamily;
-      font-size: 16px;
+      font-size: 16px !important;
       font-weight: 700;
       color: $g1Red;
       line-height: 1.25;
@@ -77,7 +77,7 @@ $g1TitleFontFamily:  opensans, opensans-bastian, Arial, sans-serif;
   .bad-blocker-post-substitute {
     .bad-blocker-message{
       font-family: $g1TitleFontFamily;
-      font-size: 16px;
+      font-size: 16px !important;
       font-weight: 700;
       color: $g1Red;
       line-height: 1.25;
