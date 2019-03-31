@@ -5,7 +5,7 @@ class StringHelper {
   constructor(){}
 
   cleanHTMLClass(stringSelector){
-    return stringSelector.replace(/\./g, '')
+    return stringSelector.replace(/\./g, ' ').trim()
   }
 
   toSentence(words){

@@ -12,7 +12,12 @@ export default class DOMBadBlocker {
     this.selectors     = options.selectors || {post:{}}
     this.selectors.postSubstitute = {
       itself: '.bad-blocker-post-substitute',
-      wrapper: `.bad-blocker-wrapper .${this.name}`
+      wrapper: `.bad-blocker-wrapper .${this.name}`,
+      message: '.bad-blocker-message',
+
+      severityIcon: '.post-severity-icon',
+      switchIcon: '.post-switch-icon',
+      wordsIcon: '.post-words-icon'
     }
 
     this.posts         = []
@@ -20,10 +25,12 @@ export default class DOMBadBlocker {
     this.positivePosts = []
     this.neutralPosts  = []
 
-    this.findsCounter = 0
+    this.findsCounter    = 0
     this.creationCounter = 0
+    this.cleanSelectors  = {postSubstitute: {}}
 
     this.logBlockerName(this.name)
+    this.updateCleanSelectorsInMemory()
     this.defineNewPostsWatcher(this.selectors.rootPostsWatcher)
     this.findPosts()
   }
@@ -33,11 +40,17 @@ export default class DOMBadBlocker {
       font-weight: bold;
       font-size: 20px;
       color: red;
-      text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black
+      text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black;
+    `
+    const blockerNameCSS = `
+      font-weight: bold;
+      font-style: italic;
+      font-size: 18px;
+      color: white;
+      text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black;
     `
 
-    console.log(`✌️ %cBad Block ${complement}`, extensionNameCSS)
-
+    console.log(`✌️ %cNewsster` + `%c ${complement}`, extensionNameCSS, blockerNameCSS)
   }
 
   defineNewPostsWatcher(containerSelector){
@@ -55,6 +68,8 @@ export default class DOMBadBlocker {
     this.negativePosts = []
     this.positivePosts = []
     this.neutralPosts  = []
+
+    this.updateCleanSelectorsInMemory()
 
     this.posts = posts.map((element) => {
       const $element      = $(element)
@@ -93,28 +108,28 @@ export default class DOMBadBlocker {
 
   createPostSubstitute(postSentiment){
     console.log(`[${this.name}] creationCounter`, ++this.creationCounter)
+    const blocker             = this
+    const postSeverityWord    = `severity_${postSentiment.severity}`
+    const randomSentencIndex  = _.random(1, 2)
 
-    const postSeverityWord   = `severity_${postSentiment.severity}`
-    const randomSentencIndex = _.random(1, 2)
-
-    const substituteTemplate         = `
-      <div class="<%= substituteClassName %>">
+    const substituteTemplate = `
+      <div class="<%= substituteSelectors.itself %>">
         <div class="bad-blocker-post-substitute-content">
-          <span class="post-severity-icon"
+          <span class="<%= substituteSelectors.severityIcon %>"
             title="<%= sentimentSentences.description %>"
           >
             [<%= postSentiment.severity %>]
           </span>
-          <span class="bad-blocker-message"
+          <span class="<%= substituteSelectors.message %>"
             title="<%= sentimentSentences.message %>"
           >
             <%= sentimentSentences.message %>
           </span>
           <div class="bad-blocker-resume-wrapper">
-            <i class="far fa-meh-blank post-words-icon"
+            <i class="far fa-meh-blank <%= substituteSelectors.wordsIcon %>"
               title="<%= sentimentSentences.negativeWords %>"
               ></i>
-            <i class="far fa-eye post-switch-icon"></i>
+            <i class="far fa-eye <%= substituteSelectors.switchIcon %>"></i>
           </div>
         </div>
       </div>
@@ -123,7 +138,7 @@ export default class DOMBadBlocker {
     const substituteTemplateFunction = _.template(substituteTemplate)
     const substituteHTML             = substituteTemplateFunction({
       postSentiment      : postSentiment,
-      substituteClassName: StringHelper.cleanHTMLClass(this.selectors.postSubstitute.itself),
+      substituteSelectors: blocker.cleanSelectors.postSubstitute,
       sentimentSentences  : {
         description:I18n.getMessage(['negativeReasons', postSeverityWord, 'description']),
         message: I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex]),
@@ -154,6 +169,12 @@ export default class DOMBadBlocker {
     }
   }
 
+  updateCleanSelectorsInMemory(){
+    const postSubstituteSelectors = _.clone(this.selectors.postSubstitute)
+    _.forOwn(postSubstituteSelectors, (selector, key) => {
+      this.cleanSelectors.postSubstitute[key] = StringHelper.cleanHTMLClass(selector)
+    })
+  }
 
 
 }
