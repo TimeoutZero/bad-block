@@ -19,7 +19,9 @@
         "*://g1.globo.com/*",
 
         "*://www.r7.com/*",
-        "*://diversao.r7.com/*"
+        "*://diversao.r7.com/*",
+        "*://recordtv.r7.com/*",
+        "*://noticias.r7.com/*"
       ],
       "js": ["content.bundle.js"]
     }
@@ -49,6 +51,8 @@
     "*://g1.globo.com/*",
 
     "*://www.r7.com/*",
-    "*://diversao.r7.com/*"
+    "*://diversao.r7.com/*",
+    "*://recordtv.r7.com/*",
+    "*://noticias.r7.com/*"
   ]
 }
