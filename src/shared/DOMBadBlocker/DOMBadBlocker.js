@@ -92,6 +92,7 @@ export default class DOMBadBlocker {
         const internalSubstitute = $wrapper.find(this.selectors.postSubstitute.itself)
         if(!internalSubstitute.length){
           const $substitute  = this.createPostSubstitute(postSentiment)
+          this.initPostSubstituteEvents($substitute)
           $wrapper.append($substitute)
         }
       } else if(postSentiment.score > 0) {
@@ -176,5 +177,22 @@ export default class DOMBadBlocker {
     })
   }
 
+
+  initPostSubstituteEvents($substitute){
+
+    $substitute.find(this.selectors.postSubstitute.switchIcon).on('click', (event) => {
+      event.stopPropagation()
+      event.preventDefault()
+      this.setPostSubstituteActive($substitute, false)
+    })
+  }
+
+  setPostSubstituteActive($substitute, active){
+    if(active){
+      $substitute.show()
+    } else {
+      $substitute.hide()
+    }
+  }
 
 }
