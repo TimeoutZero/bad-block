@@ -2179,6 +2179,8 @@ const customValues = {
   "apoio": 1,
   "morte": -3,
   "grande": 2,
+  "dúvida": 0,
+  "dúvidas": 0
 }
 
 const customLabels = {
@@ -2189,6 +2191,8 @@ const customLabels = {
 
   "massacre"  : customValues.morte + -2,
   "massacres" : customValues.morte + -2,
+  "chacina"   : customValues.morte + -2,
+  "chacinas"  : customValues.morte + -2,
 
   "mortes" : customValues.morte + -1,
   "morto"  : customValues.morte + -1,
@@ -2196,7 +2200,7 @@ const customLabels = {
   "mortos" : customValues.morte + -1,
   "mortas" : customValues.morte + -1,
   "matou"  : customValues.morte + -1,
-  "morre"  : customValues.morte + -1,
+  "morre"  : customValues.morte,
   "morrem" : customValues.morte + -1,
 
   "atropelado": customValues.morte + -1,
