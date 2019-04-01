@@ -111,7 +111,9 @@ export default class DOMBadBlocker {
     console.log(`[${this.name}] creationCounter`, ++this.creationCounter)
     const blocker             = this
     const postSeverityWord    = `severity_${postSentiment.severity}`
-    const randomSentencIndex  = _.random(1, 2)
+
+    const sevetyMessagesLength = parseInt( I18n.getMessage(['negativeReasons', postSeverityWord, 'messagesLength']), 10)
+    const randomSentencIndex   = _.random(1, sevetyMessagesLength)
 
     const substituteTemplate = `
       <div class="<%= substituteSelectors.itself %>">
