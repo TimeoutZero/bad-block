@@ -17,9 +17,16 @@ class BadBlockSentiment {
     options.language = options.language || this.language
     const textSentiment = this.sentiment.analyze(text, options)
     let severity = Math.abs(textSentiment.score)
+    const SEVERITY_ONE_COMPARATIVE_THRESHOLD = 0.1
+
     if(severity > 5){
       severity = 5
+    } else if (severity === 1){
+      if(Math.abs(textSentiment.comparative) < SEVERITY_ONE_COMPARATIVE_THRESHOLD){
+        severity = 0
+      }
     }
+
     textSentiment.severity = severity
     return textSentiment
   }

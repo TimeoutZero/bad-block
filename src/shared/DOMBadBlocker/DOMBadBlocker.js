@@ -84,17 +84,20 @@ export default class DOMBadBlocker {
 
       $wrapper.data('badBlockPost', post)
 
-      if(postSentiment.score < 0){
+      if(postSentiment.score < 0 && postSentiment.severity > 0){
         this.negativePosts.push(post)
-        // $wrapper.hide()
+
         const substituteWrapperClass = StringHelper.cleanHTMLClass(this.selectors.postSubstitute.wrapper)
         !$wrapper.hasClass(substituteWrapperClass) ? $wrapper.addClass(substituteWrapperClass) : void 0
+
         const internalSubstitute = $wrapper.find(this.selectors.postSubstitute.itself)
+
         if(!internalSubstitute.length){
           const $substitute  = this.createPostSubstitute(postSentiment)
           this.initPostSubstituteEvents($substitute)
           $wrapper.append($substitute)
         }
+
       } else if(postSentiment.score > 0) {
         this.positivePosts.push(post)
       } else {
