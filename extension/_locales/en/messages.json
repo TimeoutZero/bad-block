@@ -1,5 +1,8 @@
 {
   "appDescription" : {
     "message" : "Blocker for bad news."
+  },
+  "madeWithLove": {
+    "message": "Made with"
   }
 }

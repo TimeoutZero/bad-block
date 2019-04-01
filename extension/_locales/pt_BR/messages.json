@@ -1,5 +1,8 @@
 {
   "appDescription" : {
-    "message" : "O jornalista que bloqueia as notícias ruins."
+    "message" : "O jornalista que bloqueia notícias ruins."
+  },
+  "madeWithLove": {
+    "message": "Feito com"
   }
 }

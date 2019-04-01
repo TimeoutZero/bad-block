@@ -39,7 +39,7 @@ export default class DOMBadBlocker {
     const extensionNameCSS = `
       font-weight: bold;
       font-size: 20px;
-      color: red;
+      color: #3F8C8A;
       text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black;
     `
     const blockerNameCSS = `
@@ -132,7 +132,9 @@ export default class DOMBadBlocker {
             <i class="far fa-meh-blank <%= substituteSelectors.wordsIcon %>"
               title="<%= sentimentSentences.negativeWords %>"
               ></i>
-            <i class="far fa-eye <%= substituteSelectors.switchIcon %>"></i>
+            <i class="far fa-eye <%= substituteSelectors.switchIcon %>"
+              title="<%= sentimentSentences.seeAnyway %>"
+            ></i>
           </div>
         </div>
       </div>
@@ -143,9 +145,12 @@ export default class DOMBadBlocker {
       postSentiment      : postSentiment,
       substituteSelectors: blocker.cleanSelectors.postSubstitute,
       sentimentSentences  : {
-        description:I18n.getMessage(['negativeReasons', postSeverityWord, 'description']),
+        description: I18n.getMessage(['negativeReasons', postSeverityWord, 'description']),
         message: I18n.getMessage(['negativeReasons', postSeverityWord, randomSentencIndex]),
-        negativeWords: StringHelper.toSentence(postSentiment.negative)
+        negativeWords: I18n.getMessage(['general', 'negativeWordsFound'], {
+          words: StringHelper.toSentence(postSentiment.negative)
+        }),
+        seeAnyway: I18n.getMessage(['general', 'seeAnyway'])
       }
     })
 

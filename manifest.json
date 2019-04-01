@@ -4,12 +4,12 @@
   "name": "Newsster",
   "content_security_policy": " script-src 'self' 'unsafe-eval' http://localhost; object-src 'self'",
   "description": "__MSG_appDescription__",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "default_locale" : "en",
   "incognito" : "not_allowed",
 
   "page_action": {
-    "default_popup": "./build/popup.html",
+    "default_popup": "./popup.html",
     "default_title": "Newsster"
   },
 

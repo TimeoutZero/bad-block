@@ -35,7 +35,7 @@ class I18n {
 
   getMessage(messageKey, params = {}){
     let msg         = undefined
-    const messageFn = currentMessages.get(messageKey)
+    const messageFn = currentMessages.get(messageKey, params)
 
     if(_.isFunction(messageFn)){
       msg = messageFn(params)

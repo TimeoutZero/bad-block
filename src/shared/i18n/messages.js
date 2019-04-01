@@ -1,9 +1,11 @@
 
 export const ptBr = {
   general: {
-    and: 'E'
+    and: 'E',
+    active: 'Ativo',
+    seeAnyway: 'Ver a notícia mesmo assim',
+    negativeWordsFound: 'Palavras negativas encontradas: {words}'
   },
-  seeAnyway: 'Ver notícia mesmo assim',
   negativeReasons: {
     severity_1: {
       description: 'Nível de negatividade 1: Notícias com possível teor negativo.',
