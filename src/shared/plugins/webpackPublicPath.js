@@ -1,1 +1,1 @@
-__webpack_public_path__ = window.chrome.extension.getURL("") + 'assets/webfonts/'
+__webpack_public_path__ = window.chrome.extension.getURL("") + 'assets/'
