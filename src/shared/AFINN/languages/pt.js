@@ -1435,7 +1435,6 @@ const ptBRLabels = {
   "bom": 3,
   "estiloso": 2,
   "manos": -5,
-  "negro": -5,
   "não": -1,
   "nenhum divertimento": -3,
   "nobre": 2,
