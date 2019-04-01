@@ -16,28 +16,33 @@ export const ptBr = {
     },
     severity_2: {
       description: 'Nível de negatividade 2: Possíveis notícias com mortes acidentais, traições, golpes...',
-      messagesLength: '5',
+      messagesLength: '6',
 
       1: 'Existem coisas boas, não é preciso ver desgraças a todo momento.',
       2: 'De tristezas o mundo já tá cheio. Leia outra notícia.',
       3: 'Não vale a pena ler notícias tristes como esta.',
       4: 'Era melhor ter ido assistir um filme.',
-      5: 'Atualize-se sobre coisas boas. Esta notícia traz consigo apenas mais drama.'
+      5: 'Atualize-se sobre coisas boas. Esta notícia traz consigo apenas mais drama.',
+      6: 'Isso não vai melhorar o seu dia!'
     },
 
     severity_3: {
       description: 'Nível de negatividade 3: Possíveis notícias violentas, com agressões, assassinatos...',
-      messagesLength: '2',
+      messagesLength: '5',
 
       1: 'Não vai acrescentar nada.',
-      2: 'Prefiro não te contar sobre o que aconteceu.'
+      2: 'Prefiro não te contar sobre o que aconteceu.',
+      3: 'Deixa a energia positiva no ar!',
+      4: 'Energia negativa pra lá!',
+      5: 'A gente é o que a gente vê!'
+
     },
 
     severity_4: {
       description: 'Nível de negatividade 4: Possíveis notícias de protestos, crimes generalizados, mortes...',
       messagesLength: '4',
 
-      1: 'Deuzolivre.',
+      1: 'Fique tranquilo, seu dia vai ser melhor sem isso!',
       2: 'Não clique, você pode se arrepender.',
       3: 'Desgraça? Nem de graça.',
       4: 'Notícia sobre atrocidade absurda não devia nem ser veiculada.'
