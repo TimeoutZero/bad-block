@@ -63,7 +63,64 @@ export const ptBr = {
 };
 
 export const enUs = {
-  test: {
-    o: 'testing in english'
-  }
+  general: {
+    and: 'And',
+    active: 'Active',
+    seeAnyway: 'See the news anyway',
+    negativeWordsFound: 'Negative words found: {words}'
+  },
+  negativeReasons: {
+    severity_1: {
+      description: 'Level of negativity 1: News with possible negative content.',
+      messagesLength: '4',
+
+      1: 'I hid because I did not add to your day.',
+      2: 'Enough of negativity.',
+      3: 'If I were you, I would look at another news.',
+      4: 'You have better, but if you want to try ...'
+    },
+    severity_2: {
+      description: 'Level of negativity 2: Possible news with accidental deaths, betrayals, blows ...',
+      messagesLength: '6',
+
+      1: 'There are good things, no need to see misfortunes at all times.',
+      2: 'The world is full of sorrows. Read other news. ',
+      3: 'Sad news like this is not worth reading.',
+      4: 'It was better to have gone to a movie.',
+      5: 'Refresh yourself on good things. This news brings with it only more drama. ',
+      6: 'This will not improve your day!'
+    },
+
+    severity_3: {
+      description: 'Level of negativity 3: Possible violent news, with aggressions, murders ...',
+      messagesLength: '5',
+
+      1: 'You will not add anything.',
+      2: "I'd rather not tell you about what happened.",
+      3: 'Leave the positive energy in the air!',
+      4: 'Negative energy there!',
+      5: 'We are what we see!'
+
+    },
+
+    severity_4: {
+      description: 'Level of negativity 4: Possible news of protests, widespread crimes, deaths ...',
+      messagesLength: '4',
+
+      1: 'Take it easy, your day will be better without it!',
+      2: 'Do not click, you may regret it.',
+      3: 'Disgrace? Not for free. ',
+      4: 'News about absurd atrocity should not even be conveyed.'
+    },
+
+    severity_5: {
+      description: 'Level of negativity 5: Possible news of tragedies with fatalities, natural disasters or human errors ...',
+      messagesLength: '4',
+
+      1: 'Doom? Not for free. ',
+      2: 'News with a high degree of atrocity.',
+      3: 'Be careful not to feel worse with news like this.',
+      4: 'Negative stimulus content to the reader.'
+    }
+  }
 };
