@@ -1,5 +1,6 @@
 import G1SiteBlocker from "../../contentScripts/sites/g1/g1.blocker";
 import R7SiteBlocker from "../../contentScripts/sites/r7/r7.blocker";
+import EstadaoSiteBlocker from "../../contentScripts/sites/estadao/estadao.blocker";
 
 
 const SITES = {
@@ -12,6 +13,11 @@ const SITES = {
     name: 'R7',
     siteRoot: ['www.r7.com', 'diversao.r7.com', 'recordtv.r7.com', 'noticias.r7.com'],
     siteBlocker: R7SiteBlocker
+  },
+  ESTADAO: {
+    name: 'ESTADAO',
+    siteRoot: ['www.estadao.com.br'],
+    siteBlocker: EstadaoSiteBlocker
   }
 }
 

@@ -69,6 +69,7 @@ export default class DOMBadBlocker {
     this.positivePosts = []
     this.neutralPosts  = []
 
+    console.log(`[${this.name}] found ${posts.length} posts`)
     this.updateCleanSelectorsInMemory()
 
     this.posts = posts.map((element) => {

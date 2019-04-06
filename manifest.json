@@ -27,7 +27,9 @@
         "*://www.r7.com/*",
         "*://diversao.r7.com/*",
         "*://recordtv.r7.com/*",
-        "*://noticias.r7.com/*"
+        "*://noticias.r7.com/*",
+
+        "*://www.estadao.com.br/*"
       ],
       "js": ["content.bundle.js"]
     }
