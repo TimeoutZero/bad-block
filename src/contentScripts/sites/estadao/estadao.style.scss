@@ -1,0 +1,66 @@
+
+$estadaoTextColor: #414042;
+$estadaoFontFamily:  'EstadoHeadline-Semibold',serif;
+
+
+.estadao-spotlight,
+.estadao-wrapped-content {
+  .bad-blocker-post-substitute {
+
+    .bad-blocker-message{
+      color: $estadaoTextColor;
+      font-size: 22px !important;
+      font-family: $estadaoFontFamily;
+    }
+
+  }
+}
+
+
+.estadao-trc-spotlight {
+  .bad-blocker-post-substitute {
+
+    .bad-blocker-message{
+      color: $estadaoTextColor;
+      font-size: 16.0px !important;
+      font-family: EudaldHeadBold\5f 0;
+    }
+
+  }
+}
+
+.estadao-editorial {
+  .bad-blocker-post-substitute {
+
+    .bad-blocker-message{
+      color: #000000;
+      font-size: 18px !important;
+      font-family: $estadaoFontFamily;
+    }
+
+  }
+}
+
+.estadao-top-new {
+  .bad-blocker-post-substitute {
+
+    .bad-blocker-message{
+      color: #000000;
+      font-size: 18px !important;
+      font-family: $estadaoFontFamily;
+    }
+
+  }
+}
+
+.estadao-media-lab {
+  .bad-blocker-post-substitute {
+
+    .bad-blocker-message{
+      color: #000000;
+      font-size: 22px !important;
+      font-family: $estadaoFontFamily;
+    }
+
+  }
+}

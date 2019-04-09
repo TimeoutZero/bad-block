@@ -16,7 +16,7 @@ const SITES = {
   },
   ESTADAO: {
     name: 'ESTADAO',
-    siteRoot: ['www.estadao.com.br'],
+    siteRoot: ['www.estadao.com.br', 'emais.estadao.com.br'],
     siteBlocker: EstadaoSiteBlocker
   }
 }

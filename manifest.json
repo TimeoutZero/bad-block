@@ -29,7 +29,8 @@
         "*://recordtv.r7.com/*",
         "*://noticias.r7.com/*",
 
-        "*://www.estadao.com.br/*"
+        "*://www.estadao.com.br/*",
+        "*://emais.estadao.com.br/*"
       ],
       "js": ["content.bundle.js"]
     }
@@ -61,6 +62,7 @@
     "*://www.r7.com/*",
     "*://diversao.r7.com/*",
     "*://recordtv.r7.com/*",
-    "*://noticias.r7.com/*"
+    "*://noticias.r7.com/*",
+    "*://emais.estadao.com.br/*"
   ]
 }
